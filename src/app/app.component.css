@@ -1,0 +1,84 @@
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+body,
+html {
+  /*margin: 0;*/
+  margin: 2em;
+  padding: 0;
+  color: #000;
+  background: #a7a09a;
+}
+
+body,
+input[type="text"],
+button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrap {
+  width: 75%;
+  margin: 0 auto;
+  background: #eee;
+}
+
+#header {
+  padding: 5px 10px;
+  background: #ddd;
+}
+
+h1 {
+  margin: 0;
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+#nav {
+  padding: 5px 10px;
+  background: #aa98a9; /* rose quartz */
+}
+
+#main {
+  float: left;
+  width: 90%;
+  padding: 10px;
+  background: #ccc;
+}
+
+h2 {
+  margin: 0 0 1em;
+}
+
+h2,
+h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+#sidebar {
+  float: right;
+  width: 10%;
+  padding: 10px;
+  background: #e79476; /* living coral */
+}
+
+#footer {
+  clear: both;
+  padding: 5px 10px;
+  background: #cc9;
+}
+
+* html #footer {
+  height: 1px;
+}
+
+#footer p {
+  margin: 0;
+}

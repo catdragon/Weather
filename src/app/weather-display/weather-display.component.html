@@ -1,0 +1,83 @@
+<h1>Weather in {{ weather.name }}</h1>
+<div>
+    <!-- {{ weather | json }} -->
+
+    <table>
+        <tr>
+            <td>
+                ({{ weather.coord.lon }} E/W,
+                {{ weather.coord.lat }} N/S)
+            </td>
+            <td>
+                <span *ngFor="let thiscond of weather['weather']; index as i">
+                    <img
+                        src="http://openweathermap.org/img/w/{{thiscond.icon}}.png"
+                        alt="{{thiscond.main}}"
+                    />
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                The weather today is
+                <span
+                    *ngFor="let thiscond of weather.weather; index as i"
+                    [ngSwitch]="thiscond.main"
+                >
+                    {{ thiscond.description }}
+                    <span *ngSwitchCase="'Rain'">
+                        ({{ weather.rain['1h'] }} inches)</span
+                    >
+                    <span *ngSwitchCase="'Snow'">
+                        ({{weather.snow["1h"]} inches)</span
+                    >
+                    <span *ngSwitchDefault></span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                The sky is {{ weather.clouds.all }}% filled with clouds.
+                Todays's high will be {{ weather.main.temp_max }}&deg; F and its low was {{ weather.main.temp_min }}&deg; F. Currently it is <strong>{{ weather.main.temp }}&deg; F</strong> ({{ weather.main.temp | f2c }}&deg; C). <br />
+                The wind is from the {{ weather.wind.deg | degreeDirection }} and is {{ weather.wind.speed }} mph.<br />
+                <br />
+                Currently the humidity is {{ weather.main.humidity }}% and the barameter reads {{ weather.main.pressure }} mg.<br />
+                <br />
+                The sunrise was at {{ weather.sys.sunrise*1000 | date:'shortTime' }}.<br />
+                The sunset will be at {{ weather.sys.sunset*1000 | date:'shortTime' }}.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {{ location }}
+            </td>
+        </tr>
+    </table>
+
+    <!--
+        <table>
+
+            <tr>
+                <td>Date.now()</td>
+                <td>{{ weather.today | date: 'full' }}</td>
+                <td>{{ weather.today }}</td>
+            </tr>
+            <tr>
+                <td>dt:</td>
+                <td>{{ weather.dt | date: 'full' }}</td>
+                <td>{{ weather.dt }}</td>
+            </tr>
+            <tr>
+                <td>Sunrise:</td>
+                <td>{{ weather.sys.sunrise | date: 'full' }}</td>
+                <td>{{ weather.sys.sunrise }}</td>
+            </tr>
+            <tr>
+                <td>Sunset:</td>
+                <td>{{ weather.sys.sunset | date: 'full' }}</td>
+                <td>{{ weather.sys.sunset }}</td>
+            </tr>
+        </table>
+    -->
+</div>
